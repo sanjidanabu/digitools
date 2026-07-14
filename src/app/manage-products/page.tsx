@@ -90,7 +90,7 @@ export default function ManageItems() {
             </div>
             <div className="flex gap-2 mt-2">
               <Link
-                href={`/items/${product._id}`}
+                href={`/products/${product._id}`}
                 className="flex-1 text-center bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white py-2 rounded-md text-sm font-medium transition-colors"
               >
                 View
