@@ -2,12 +2,15 @@ import { NextResponse } from 'next/server';
 import { ObjectId } from 'mongodb';
 import clientPromise from '@/lib/mongodb';
 
+
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> } 
 ) {
   try {
-    const id = params.id;
+    
+    const resolvedParams = await params;
+    const id = resolvedParams.id;
 
     if (!id || !ObjectId.isValid(id)) {
       return NextResponse.json({ error: 'Invalid product ID' }, { status: 400 });
